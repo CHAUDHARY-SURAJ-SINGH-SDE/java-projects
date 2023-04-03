@@ -29,7 +29,7 @@ public class myMain extends Application{
 		rootNode.getChildren().add(0,menuBar);
 		Scene scene = new Scene(rootNode);
 		primaryStage.setScene(scene);
-		primaryStage.setTitle("ENGINEER SURAJ SINGH");
+		primaryStage.setTitle("TEMPERATURE CONVERTOR");
 		primaryStage.show();
 	}
 	private MenuBar createMenu(){
@@ -44,12 +44,23 @@ public class myMain extends Application{
 		aboutApp.setOnAction(actionEvent -> aboutApp());
 		MenuItem helpMenuItem = new MenuItem("Help");
 		helpMenu.getItems().addAll(aboutApp,separatorMenuItem, helpMenuItem);
+		helpMenu.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent actionEvent) {
+				Alert helpAlert = new Alert(Alert.AlertType.INFORMATION);
+				helpAlert.setTitle("HELP !");
+				helpAlert.setHeaderText("1: First you must set the temperature conversion as you wish "+
+						"2: Now you can enter the temperature value"+
+						"3: press on convert you got the desired value");
+				helpAlert.show();
+			}
+		});
 		Menu quitMenu = new Menu("Quit");
 		MenuItem Quit = new MenuItem("Quit");
 		quitMenu.getItems().addAll(Quit);
 		Quit.setOnAction(actionEvent -> {
 			Alert quiteAlert = new Alert(Alert.AlertType.CONFIRMATION);
-			quiteAlert.setTitle("CHAUDHARY SURAJ SINGH");
+			quiteAlert.setTitle("SURAJ SINGH");
 			quiteAlert.setHeaderText("Do You Really Want to Quit");
 			ButtonType yesBtn= new ButtonType("Yes");
 			ButtonType noBtn = new ButtonType("No");
@@ -71,17 +82,7 @@ public class myMain extends Application{
 		alertDialog.setContentText("Hey there i am engineer SURAJ SINGH." +
 				" this is my first Desktop Application" +
 				" and I am in learning mode");
-		ButtonType yesBtn= new ButtonType("Yes");
-		ButtonType noBtn = new ButtonType("No");
-		alertDialog.getButtonTypes().setAll(yesBtn,noBtn);
-		Optional<ButtonType> clickButton=alertDialog.showAndWait();
-		if (clickButton.isPresent()&&clickButton.get()== yesBtn){
-			System.out.println("yes button clicked");
-
-		}
-		else {
-			System.out.println("no button clicked");
-		}
+		alertDialog.show();
 	}
 
 	@Override
