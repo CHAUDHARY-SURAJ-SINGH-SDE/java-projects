@@ -1,0 +1,14 @@
+out/
+idea/
+target/
+!**/src/main/**/out/
+!**/src/test/**/out/
+.idea/
+workspace.xml/.idea
+*.out
+*.cmd
+*.xml
+mvnw/
+.mvn/
+mvnw
+
